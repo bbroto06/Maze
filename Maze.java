@@ -1,8 +1,11 @@
 import java.io.*;
 import java.util.*;
+
 public class Maze {
  static int[][] G; //known to all methods
  static int m, n, sr, sc; //known to all methods
+ 
+ // Main method
  public static void main(String[] args) throws IOException {
    Scanner in = new Scanner(new FileReader("maze.in"));
    PrintWriter out = new PrintWriter(new FileWriter("maze.out"));
@@ -12,6 +15,7 @@ public class Maze {
    out.close();
   } // end main
 
+// Input data from maze.in to G array
  public static void getData(Scanner in ) {
    m = in .nextInt();
    n = in .nextInt();
@@ -23,6 +27,7 @@ public class Maze {
      G[r][c] = in .nextInt();
   } //end getData
 
+// Find an escape route from the Maze
  public static boolean findPath(int r, int c) {
    if (r < 1 || r > m || c < 1 || c > n) return false;
    if (G[r][c] == 1) return false; //into a wall
@@ -40,6 +45,7 @@ public class Maze {
    return false;
   } //end findPath
 
+// Display the escape route in maze.out
  public static void printMaze(PrintWriter out) {
    int r, c;
    for (r = 1; r <= m; r++) {
